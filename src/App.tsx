@@ -18,6 +18,7 @@ import logo from "./logo.svg";
 Amplify.configure(aws_exports);
 
 const App = () => {
+
   return (
     <AmplifyProvider theme={theme}>
       <Authenticator>

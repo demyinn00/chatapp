@@ -1,5 +1,14 @@
-type Todo @model {
+type BlogPost @model {
   id: ID!
-  name: String!
-  description: String
+  title: String!
+  content: String
+  likes: Int
+  comments: [Comment] @connection(keyName: "byPost", fields: ["id])
+  shares: Int
+}
+
+type Comment @model @key(name: "byPost", fields: ["blogPostId"]) {
+  id: ID!
+  content: String!
+  blogPostId: ID!
 }

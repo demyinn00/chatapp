@@ -8,45 +8,105 @@ type GeneratedSubscription<InputType, OutputType> = string & {
   __generatedSubscriptionOutput: OutputType;
 };
 
-export const onCreateTodo = /* GraphQL */ `subscription OnCreateTodo {
-  onCreateTodo {
+export const onCreateBlogPost = /* GraphQL */ `subscription OnCreateBlogPost {
+  onCreateBlogPost {
     id
-    name
-    description
+    title
+    content
+    likes
+    comments {
+      nextToken
+      __typename
+    }
+    shares
     createdAt
     updatedAt
     __typename
   }
 }
 ` as GeneratedSubscription<
-  APITypes.OnCreateTodoSubscriptionVariables,
-  APITypes.OnCreateTodoSubscription
+  APITypes.OnCreateBlogPostSubscriptionVariables,
+  APITypes.OnCreateBlogPostSubscription
 >;
-export const onUpdateTodo = /* GraphQL */ `subscription OnUpdateTodo {
-  onUpdateTodo {
+export const onUpdateBlogPost = /* GraphQL */ `subscription OnUpdateBlogPost {
+  onUpdateBlogPost {
     id
-    name
-    description
+    title
+    content
+    likes
+    comments {
+      nextToken
+      __typename
+    }
+    shares
     createdAt
     updatedAt
     __typename
   }
 }
 ` as GeneratedSubscription<
-  APITypes.OnUpdateTodoSubscriptionVariables,
-  APITypes.OnUpdateTodoSubscription
+  APITypes.OnUpdateBlogPostSubscriptionVariables,
+  APITypes.OnUpdateBlogPostSubscription
 >;
-export const onDeleteTodo = /* GraphQL */ `subscription OnDeleteTodo {
-  onDeleteTodo {
+export const onDeleteBlogPost = /* GraphQL */ `subscription OnDeleteBlogPost {
+  onDeleteBlogPost {
     id
-    name
-    description
+    title
+    content
+    likes
+    comments {
+      nextToken
+      __typename
+    }
+    shares
     createdAt
     updatedAt
     __typename
   }
 }
 ` as GeneratedSubscription<
-  APITypes.OnDeleteTodoSubscriptionVariables,
-  APITypes.OnDeleteTodoSubscription
+  APITypes.OnDeleteBlogPostSubscriptionVariables,
+  APITypes.OnDeleteBlogPostSubscription
+>;
+export const onCreateComment = /* GraphQL */ `subscription OnCreateComment {
+  onCreateComment {
+    id
+    content
+    blogPostId
+    createdAt
+    updatedAt
+    __typename
+  }
+}
+` as GeneratedSubscription<
+  APITypes.OnCreateCommentSubscriptionVariables,
+  APITypes.OnCreateCommentSubscription
+>;
+export const onUpdateComment = /* GraphQL */ `subscription OnUpdateComment {
+  onUpdateComment {
+    id
+    content
+    blogPostId
+    createdAt
+    updatedAt
+    __typename
+  }
+}
+` as GeneratedSubscription<
+  APITypes.OnUpdateCommentSubscriptionVariables,
+  APITypes.OnUpdateCommentSubscription
+>;
+export const onDeleteComment = /* GraphQL */ `subscription OnDeleteComment {
+  onDeleteComment {
+    id
+    content
+    blogPostId
+    createdAt
+    updatedAt
+    __typename
+  }
+}
+` as GeneratedSubscription<
+  APITypes.OnDeleteCommentSubscriptionVariables,
+  APITypes.OnDeleteCommentSubscription
 >;

@@ -8,27 +8,38 @@ type GeneratedQuery<InputType, OutputType> = string & {
   __generatedQueryOutput: OutputType;
 };
 
-export const getTodo = /* GraphQL */ `query GetTodo($id: ID!) {
-  getTodo(id: $id) {
+export const getBlogPost = /* GraphQL */ `query GetBlogPost($id: ID!) {
+  getBlogPost(id: $id) {
     id
-    name
-    description
+    title
+    content
+    likes
+    comments {
+      nextToken
+      __typename
+    }
+    shares
     createdAt
     updatedAt
     __typename
   }
 }
-` as GeneratedQuery<APITypes.GetTodoQueryVariables, APITypes.GetTodoQuery>;
-export const listTodos = /* GraphQL */ `query ListTodos(
-  $filter: ModelTodoFilterInput
+` as GeneratedQuery<
+  APITypes.GetBlogPostQueryVariables,
+  APITypes.GetBlogPostQuery
+>;
+export const listBlogPosts = /* GraphQL */ `query ListBlogPosts(
+  $filter: ModelBlogPostFilterInput
   $limit: Int
   $nextToken: String
 ) {
-  listTodos(filter: $filter, limit: $limit, nextToken: $nextToken) {
+  listBlogPosts(filter: $filter, limit: $limit, nextToken: $nextToken) {
     items {
       id
-      name
-      description
+      title
+      content
+      likes
+      shares
       createdAt
       updatedAt
       __typename
@@ -37,4 +48,43 @@ export const listTodos = /* GraphQL */ `query ListTodos(
     __typename
   }
 }
-` as GeneratedQuery<APITypes.ListTodosQueryVariables, APITypes.ListTodosQuery>;
+` as GeneratedQuery<
+  APITypes.ListBlogPostsQueryVariables,
+  APITypes.ListBlogPostsQuery
+>;
+export const getComment = /* GraphQL */ `query GetComment($id: ID!) {
+  getComment(id: $id) {
+    id
+    content
+    blogPostId
+    createdAt
+    updatedAt
+    __typename
+  }
+}
+` as GeneratedQuery<
+  APITypes.GetCommentQueryVariables,
+  APITypes.GetCommentQuery
+>;
+export const listComments = /* GraphQL */ `query ListComments(
+  $filter: ModelCommentFilterInput
+  $limit: Int
+  $nextToken: String
+) {
+  listComments(filter: $filter, limit: $limit, nextToken: $nextToken) {
+    items {
+      id
+      content
+      blogPostId
+      createdAt
+      updatedAt
+      __typename
+    }
+    nextToken
+    __typename
+  }
+}
+` as GeneratedQuery<
+  APITypes.ListCommentsQueryVariables,
+  APITypes.ListCommentsQuery
+>;

@@ -3,7 +3,7 @@ type BlogPost @model {
   title: String!
   content: String
   likes: Int
-  comments: [Comment] @connection(keyName: "byPost", fields: ["id])
+  comments: [Comment] @connection(keyName: "byPost", fields: ["id"])
   shares: Int
 }
 

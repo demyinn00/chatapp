@@ -43,12 +43,6 @@ const App = () => {
                 </Button>
               </View>
             )}
-
-            <View width="100%">
-              <Text>
-                Edit <code>src/App.tsx</code> and save to reload.
-              </Text>
-            </View>
           </Flex>
         )}
       </Authenticator>
